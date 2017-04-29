@@ -40,6 +40,7 @@ RUN curl -fSL "http://ftp.drupal.org/files/projects/commerce_kickstart-7.x-2.37-
 COPY entrypoint.sh /entrypoint.sh
 COPY default.settings.php sites/default/settings.php
 RUN chmod 755 /*.sh
-
+# Start supervisord and services
+exec /usr/bin/supervisord -n -c /etc/supervisord.conf
 ENTRYPOINT ["/entrypoint.sh"]
 CMD ["apache2-foreground"]

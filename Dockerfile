@@ -31,8 +31,8 @@ COPY config/php.ini /usr/local/etc/php/
 WORKDIR /var/www/html
 
 ENV COMMERCE_KICKSTART_VERSION 7.x-2.23
-
-RUN curl -fSL "http://ftp.drupal.org/files/projects/commerce_kickstart-${COMMERCE_KICKSTART_VERSION}-core.tar.gz" -o drupal.tar.gz \
+               
+RUN curl -fSL "http://ftp.drupal.org/files/projects/commerce_kickstart-7.x-2.37-core.tar.gz" -o drupal.tar.gz \
   && tar -xz --strip-components=1 -f drupal.tar.gz \
   && rm drupal.tar.gz \
   && chown -R www-data:www-data sites
